@@ -1,10 +1,13 @@
 const express = require('express');
 const { Op } = require('sequelize');
 const bcrypt = require('bcryptjs');
-const { check } = require('express-validator');
-const { handleValidationErrors } = require('../../utils/validation')
+
 const { setTokenCookie, restoreUser } = require('../../utils/auth');
 const { User } = require('../../db/models');
+
+const { check } = require('express-validator');
+const { handleValidationErrors } = require('../../utils/validation');
+
 
 const router = express.Router();
 
@@ -46,6 +49,7 @@ router.post(
         id: user.id,
         email: user.email,
         username: user.username,
+        firstName: user.firstName
       };
 
       await setTokenCookie(res, safeUser);
@@ -56,6 +60,31 @@ router.post(
     }
   );
 
+  router.get(
+    '/',
+    (req, res) => {
+      const { user } = req;
+      if (user) {
+        const safeUser = {
+          id: user.id,
+          email: user.email,
+          username: user.username,
+          firstName: user.firstName
+        };
+        return res.json({
+          user: safeUser
+        });
+      } else return res.json({ user: null });
+    }
+  );
+  router.delete(
+    '/',
+    (_req, res) => {
+      res.clearCookie('token');
+      return res.json({ message: 'success' });
+    }
+  );
 
 
-  module.exports = router;
+
+module.exports = router;
