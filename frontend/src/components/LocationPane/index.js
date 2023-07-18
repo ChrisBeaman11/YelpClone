@@ -1,21 +1,33 @@
 import React from "react";
-
-
-export default function LocationPane(){
-
-
+import {useHistory} from "react-router-dom";
+import './index.css';
+export default function LocationPane(props){
+    let location = props.location;
+    let history = useHistory();
+    if(!location) return null;
+    let id = location.id;
     return(
-        <div className="paneContainer">
-            <div className="paneGrid">
-                <div className="leftSide">
-                <img src="https://howtostartanllc.com/images/business-ideas/business-idea-images/fast-food.jpg" alt="photo unavailable" />
-                </div>
-                <div className="rightSide">
-                <h2>Name of place</h2>
-                <p>Stars rating, number of reviews</p>
-                <p>City, State</p>
-                </div>
+        <div
+          className="paneContainer"
+          onClick={() => {
+            history.push(`/locations/${id}`);
+          }}
+          title={location.name}
+        >
+          <img
+            className="paneImage"
+            src={location.previewImage}
+            alt="photo unavailable"
+          />
+          <div className="firstLinePane">
+            <div className="location">
+              <p>{location.city},</p>
+              <p>{location.state}</p>
             </div>
-        </div>
+            <p>
+              <i className="fas fa-star"></i> {location.avgRating?location.avgRating.toFixed(2) : "New"}
+            </p>
+          </div>
+          </div>
     )
 }

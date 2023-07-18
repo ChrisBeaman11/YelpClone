@@ -1,6 +1,6 @@
 const express = require("express");
 const { setTokenCookie, requireAuth } = require("../../utils/auth");
-
+const {Location, Review, sequelize, LocationImage} = require("../../db/models")
 const router = express.Router();
 
 router.get("/", async (req, res) => {
@@ -10,11 +10,11 @@ router.get("/", async (req, res) => {
     for (let location of locations) {
       const numOfReviews = await Review.count({
         where: {
-          spotId: spot.id,
+          locationId: location.id,
         },
       });
       const totalStars = await Review.findAll({
-        attributes: [[sequelize.fn("sum", sequelize.col("stars")), "total"]],
+        attributes: [[sequelize.fn("sum", sequelize.col("rating")), "total"]],
         where: {
           locationId: location.id,
         },
