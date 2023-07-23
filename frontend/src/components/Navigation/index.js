@@ -1,35 +1,41 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import ProfileButton from './ProfileButton';
-// import './Navigation.css';
+import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import ProfileButton from "./ProfileButton";
+import "./Navigation.css";
+import { useHistory } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
-function Navigation({ isLoaded }){
-  const sessionUser = useSelector(state => state.session.user);
+function Navigation({ isLoaded }) {
+  let {pathname} = useLocation();
+  const [changeStyle, setChangeStyle] = useState(!isNaN(pathname[pathname.length-1]));
+  let history = useHistory();
+  const sessionUser = useSelector((state) => state.session.user);
+  useEffect(()=>{
+    if(!isNaN(pathname[pathname.length-1])){
+      setChangeStyle(true)
+    }
+    else{
+      setChangeStyle(false)
+    }
 
-  let sessionLinks;
-  if (sessionUser) {
-    sessionLinks = (
-      <li>
-        <ProfileButton user={sessionUser} />
-      </li>
-    );
-  } else {
-    sessionLinks = (
-      <li>
-        <NavLink to="/login">Log In</NavLink>
-        <NavLink to="/signup">Sign Up</NavLink>
-      </li>
-    );
-  }
-
+  }, [pathname])
   return (
-    <ul>
-      <li>
-        <NavLink exact to="/">Home</NavLink>
-      </li>
-      {isLoaded && sessionLinks}
-    </ul>
+    <div className={changeStyle? 'squishedNavCont': 'NavContainer'}>
+
+      <h1 onClick = {() => history.push('/')}className = "logo">Yelp</h1>
+    <div className="SubNav">
+
+      {
+
+          isLoaded && (
+
+              <ProfileButton user={sessionUser} />
+
+
+          )
+      }
+      </div>
+    </div>
   );
 }
 

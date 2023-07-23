@@ -6,6 +6,10 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import Landing from "./views/landing";
 import Login from "./views/login";
+import Location from "./views/location";
+import CreateLocation from "./views/createLocationForm";
+import UpdateLocation from "./views/updateLocation";
+import ManageLocations from "./views/manageLocations";
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -18,14 +22,20 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
-          <Route path = "/">
+          <Route exact path = "/">
         <Landing/>
           </Route>
-          <Route path="/signup">
-            <Signup />
+            <Route exact path="/locations/new">
+            <CreateLocation />
           </Route>
-          <Route path="/login">
-            <Login />
+          <Route exact path="/locations/current">
+            <ManageLocations />
+          </Route>
+          <Route exact path="/locations/:locationId/edit">
+            <UpdateLocation />
+          </Route>
+          <Route exact path = "/locations/:locationId">
+        <Location/>
           </Route>
         </Switch>
       )}

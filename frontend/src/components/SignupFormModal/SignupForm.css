@@ -1,0 +1,37 @@
+.signupModal{
+    position: fixed;
+    z-index: 1;
+    left: calc(50% - 150px);
+    top: calc(50% - 200px);
+    width: 300px;
+    height: 400px;
+    overflow: auto;
+    border-radius: 10px;
+    background-color: darkgray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.signupForm{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.signupButton{
+    width: 250px;
+    height: 60px;
+    box-shadow: 2px 2px;
+    background-color: #FF5A5F;
+}
+
+.signupButton[disabled]{
+    background-color: lightgray;
+}
+
+.errors{
+    color: red;
+}

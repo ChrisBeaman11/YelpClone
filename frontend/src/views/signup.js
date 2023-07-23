@@ -1,10 +1,10 @@
 import React from "react";
-import SignupFormPage from "../components/LoginFormPage";
+import SignupFormPage from "../components/LoginFormModal";
 
-export default function Signup(){
-    return(
-        <div>
-            <SignupFormPage/>
-        </div>
-    )
+export default function Signup() {
+  return (
+    <div>
+      <SignupFormPage />
+    </div>
+  );
 }

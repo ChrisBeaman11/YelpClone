@@ -1,0 +1,34 @@
+.submitButton{
+    color: white;
+    background-color: #FF5A5F;
+    box-shadow: 2px 2px;
+    width: 200px;
+}
+
+.reviewTextArea{
+    background-color: lightblue;
+}
+
+.modalContainer{
+    position: fixed;
+    z-index: 1;
+    left: calc(50% - 200px);
+    top: calc(50% - 250px);
+    width: 400px;
+    height: 500px;
+    overflow: auto;
+    border-radius: 10px;
+    background-color: darkgray;
+}
+
+.modalContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.submitButton[disabled]{
+    background-color: lightgray;
+    color: gray;
+}

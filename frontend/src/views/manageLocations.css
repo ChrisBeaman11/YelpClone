@@ -1,0 +1,18 @@
+.header{
+    display: flex;
+    justify-content: center;
+}
+
+.des{
+    margin-left: 30%;
+    font-size: 20px;
+    width: 40%;
+    text-align: center;
+
+}
+
+.GridContainer{
+    margin-top: 100px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
