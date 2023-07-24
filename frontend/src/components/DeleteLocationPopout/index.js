@@ -10,12 +10,12 @@ export default function DeleteLocationPopout(props) {
   return (
     <div className="deleteLocationModal">
       <h2>Confirm Delete</h2>
-      <p>Are you sure you want to remove this location from the listings?</p>
+      <p className="areSure">Are you sure you want to remove this restaurant from our site?</p>
       <button className="yesButton" onClick={async () => {
           await dispatch(deleteSingleLocation(props.location.id));
           props.setShowDeleteModal(false);
-            }}>Yes (Delete Location)</button>
-      <button className="noButton" onClick={()=>{ props.setShowDeleteModal(false)}}>No (Keep Location)</button>
+            }}>Yes (Delete Restaurant)</button>
+      <button className="noButton" onClick={()=>{ props.setShowDeleteModal(false)}}>No (Keep Restaurant)</button>
     </div>
   );
 }

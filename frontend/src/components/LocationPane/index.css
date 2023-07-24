@@ -28,3 +28,11 @@
     font-weight: bolder;
     color: rgb(197, 12, 12);
 }
+
+.manageButtonsDiv{
+    justify-content: space-between;
+    margin-top: 5px;
+}
+.manageButtons{
+    width: 30%;
+}

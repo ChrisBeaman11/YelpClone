@@ -88,6 +88,7 @@ export default function LocationForm({location, formType}){
       previewImages,
     ]);
     return (
+      <>
       <div>
         <div className="headerStuff">
       <h2>{isUpdate? 'Edit your restaurant details': 'Add a new restaurant'}</h2>
@@ -170,5 +171,6 @@ export default function LocationForm({location, formType}){
         </div>
       </form>
       </div>
+      </>
     );
 }

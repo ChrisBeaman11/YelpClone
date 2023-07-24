@@ -78,7 +78,7 @@ export default function Location() {
             >
              {reviews.length > 0 ? `Post your review`: 'Be the first to post a review!'}
             </button>}
-
+<hr />
           {reviews.sort((a, b) => {
           let dateA = new Date(a.createdAt);
           let dateB = new Date(b.createdAt);
@@ -93,12 +93,12 @@ export default function Location() {
                 <div className="date">{getMonth(review.createdAt) + ' ' + review.createdAt.split('T').join('').split('-')[0]}</div>
                 <div className="review">{review.review}</div>
                 </div>
-                <hr />
                 {isUsersReview&&<button className="deleteReviewButton"onClick={() => {
 
                 setShowDeleteModal(review);
               }}>Delete</button>}
                 </>}
+                <hr />
               </div>
             );
           })}

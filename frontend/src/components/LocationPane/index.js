@@ -36,8 +36,9 @@ export default function LocationPane(props){
           </div>
           </div>
            {props.footer ? (
-            <div style={{ display: "flex" }}>
+            <div className= "manageButtonsDiv" style={{ display: "flex" }}>
               <button
+              className= "manageButtons"
                 onClick={() => {
                   history.push(`/locations/${location.id}/edit`);
                 }}
@@ -45,6 +46,7 @@ export default function LocationPane(props){
                 Edit
               </button>
               <button
+              className= "manageButtons"
                 onClick={() => {
                   setShowDeleteModal(true);
                 }}
