@@ -21,7 +21,7 @@ router.get("/", async (req, res) => {
       });
       let avgStars = totalStars[0].dataValues.total / numOfReviews;
       let pojo = location.toJSON();
-      location.avgStarRating = avgStars;
+      pojo.avgStarRating = avgStars;
       const previewImg = await LocationImage.findAll({
         where: {
           locationId: location.id,
@@ -35,6 +35,7 @@ router.get("/", async (req, res) => {
       }
       arr.push(pojo);
     }
+    console.log("THIS IS THE ARR, ", arr)
     return res.json({ Locations: arr });
   });
   router.get("/current", requireAuth, async (req, res) => {
@@ -321,7 +322,7 @@ router.get("/", async (req, res) => {
           userId: userId,
           locationId: locationId,
           review,
-          stars,
+          rating: stars,
         });
         if (!req.body.review) {
           errors.review = "Review text is required";

@@ -54,7 +54,7 @@ function ProfileButton({ user }) {
             <li>{user.email}</li>
             <li>
               <NavLink exact to="/locations/current">
-                Manage Locations
+                Manage Restaurants
               </NavLink>
             </li>
             <li>
