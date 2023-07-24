@@ -31,3 +31,11 @@
 }
 
 
+.submitButton{
+    width: 90%;
+    height: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 3em;
+    background-color: rgb(197, 12, 12);
+}
