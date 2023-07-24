@@ -55,6 +55,7 @@ router.get("/current", requireAuth, async (req, res) => {
     }
     return res.json({"Reviews": arr});
   });
+  
 
   router.delete('/:reviewId', requireAuth, async (req, res) => {
     let reviewId = req.params.reviewId;

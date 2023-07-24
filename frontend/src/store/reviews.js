@@ -1,9 +1,11 @@
 import { csrfFetch } from "./csrf";
 import { updateReview, updateReviewPost } from "./locations";
 
-export const LOAD_ALL_REVIEWS_BY_LOCATION = "reviews/LOAD_ALL_REVIEWS_BY_LOCATION";
+export const LOAD_ALL_REVIEWS_BY_LOCATION =
+  "reviews/LOAD_ALL_REVIEWS_BY_LOCATION";
 export const POST_NEW_REVIEW = "reviews/POST_NEW_REVIEW";
 export const REMOVE_REVIEW = "reviews/REMOVE_REVIEW";
+
 
 export const loadAllReviews = (reviews) => ({
   type: LOAD_ALL_REVIEWS_BY_LOCATION,
@@ -33,11 +35,11 @@ export const fetchAllReviewsByLocation = (locationId) => async (dispatch) => {
 };
 
 export const createNewReview =
-  (locationId, review, stars, firstName, userId) => async (dispatch) => {
+  (locationId, review, rating, firstName, userId) => async (dispatch) => {
     try {
       const response = await csrfFetch(`/api/locations/${locationId}/reviews`, {
         method: "POST",
-        body: JSON.stringify({ review, stars }),
+        body: JSON.stringify({ review, rating }),
       });
       if (!response.ok) {
         throw new Error("Failed on createNewReview");
@@ -46,7 +48,9 @@ export const createNewReview =
       // console.log("DEEZE REVIEWS", reviews);
       reviews.User = { firstName, id: userId };
       dispatch(postNewReview(reviews));
-      const location = await (await csrfFetch(`/api/locations/${locationId}`)).json();
+      const location = await (
+        await csrfFetch(`/api/locations/${locationId}`)
+      ).json();
       if (location) {
         dispatch(updateReviewPost(location.avgStarRating));
       }
@@ -54,6 +58,8 @@ export const createNewReview =
       console.log("Failed on createNewReview:", err);
     }
   };
+
+
 export const deleteSingleReview = (id, locationId) => async (dispatch) => {
   try {
     const response = await csrfFetch(`/api/reviews/${id}`, {
@@ -62,7 +68,9 @@ export const deleteSingleReview = (id, locationId) => async (dispatch) => {
     if (response.ok) {
       const review = await response.json();
       dispatch(removeReview(id));
-      const location = await (await csrfFetch(`/api/locations/${locationId}`)).json();
+      const location = await (
+        await csrfFetch(`/api/locations/${locationId}`)
+      ).json();
       if (location) {
         dispatch(updateReview(location.avgStarRating));
       }

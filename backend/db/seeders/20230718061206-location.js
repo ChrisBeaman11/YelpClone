@@ -23,7 +23,7 @@ module.exports = {
         city: 'Albany',
         state: 'New York',
         country: "United States",
-        description: "A great restaurant"
+        description: "The best coffee in the world."
       },
       {
         name: "Wendys",
@@ -31,7 +31,7 @@ module.exports = {
         city: 'Albany',
         state: 'New York',
         country: "United States",
-        description: "A great restaurant"
+        description: "We have the best chicken sandwhiches."
       },
       {
         name: "McDonalds",
@@ -39,7 +39,7 @@ module.exports = {
         city: 'Albany',
         state: 'New York',
         country: "United States",
-        description: "A great restaurant"
+        description: "McDonalds is the number one fast food chain in the world."
       },
       {
         name: "Pizza Hut",
@@ -47,7 +47,7 @@ module.exports = {
         city: 'Albany',
         state: 'New York',
         country: "United States",
-        description: "A great restaurant"
+        description: "We have great pizza for you."
       },
       {
         name: "Arbys",
@@ -55,7 +55,7 @@ module.exports = {
         city: 'Albany',
         state: 'New York',
         country: "United States",
-        description: "A great restaurant"
+        description: "Arbys is well known for having the meat."
       },
       {
         name: "Taco Bell",
@@ -63,7 +63,7 @@ module.exports = {
         city: 'Albany',
         state: 'New York',
         country: "United States",
-        description: "A great restaurant"
+        description: "We have the best fast food Mexican restaurant."
       },
       {
         name: "Dairy Queen",
@@ -71,7 +71,7 @@ module.exports = {
         city: 'Albany',
         state: 'New York',
         country: "United States",
-        description: "A great restaurant"
+        description: "Dairy queen has the best ice cream selection."
       },
       {
         name: "Popeyes",

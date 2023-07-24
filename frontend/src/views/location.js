@@ -26,7 +26,7 @@ export default function Location() {
   const reviews = useSelector((state) => state.reviews.reviews) || [];
   const sessionUser = useSelector((state) => state.session.user);
 
-
+ 
 
   useEffect(() => {
     dispatch(fetchSingleLocation(locationId));
@@ -85,6 +85,7 @@ export default function Location() {
           return dateB - dateA;
         }).map((review, i) => {
             const isUsersReview = sessionUser?.id === review.User.id;
+            console.log("THIS IS showModal", showModal)
             return (
               <div className="reviewItem" key={i}>
                 {review &&<>
@@ -97,6 +98,7 @@ export default function Location() {
 
                 setShowDeleteModal(review);
               }}>Delete</button>}
+
                 </>}
                 <hr />
               </div>
