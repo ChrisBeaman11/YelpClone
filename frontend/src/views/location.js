@@ -49,29 +49,20 @@ export default function Location() {
     <div className="outerCont">
       <div className="paneContainer">
         <h2 className="locationName">{location.name}</h2>
-        <div className="locationDiv">
-          <h3>{location.city},</h3>
-          <h3>{location.state},</h3>
-          <h3>{location.country}</h3>
-        </div>
         {location.LocationImages && (
           <div className="locationImagesContainer">
             {location.LocationImages[0] && (
               <img className = "mainPreview"src={location.LocationImages[0].url} alt="PHOTO UNAVAILABLE" />
             )}
-            <div className="rightSide">
-            {location.LocationImages[1] && <img src={location.LocationImages[1].url} alt="" />}
-            {location.LocationImages[2] && <img src={location.LocationImages[2].url} alt="" />}
-            {location.LocationImages[3] && <img src={location.LocationImages[3].url} alt="" />}
-            {location.LocationImages[4] && <img src={location.LocationImages[4].url} alt="" />}
-            </div>
+
           </div>
         )}
-        <div className="ownerInfoBoxDiv">
-          <div className="ownerDescriptionDiv">
-            <p className="descriptionTag">{location.description}</p>
-          </div>
+        <div className="locationDiv">
+          <h3>{location.city}, {location.state}, {location.country}</h3>
         </div>
+
+            <p className="descriptionTag">{location.description}</p>
+
         </div>
         <div className="reviewSide">
         <div className="ReviewContainer">
@@ -97,9 +88,12 @@ export default function Location() {
             return (
               <div className="reviewItem" key={i}>
                 {review &&<>
+                <div className= "reviewCont">
                 <div className="name">{review.User.firstName}</div>
                 <div className="date">{getMonth(review.createdAt) + ' ' + review.createdAt.split('T').join('').split('-')[0]}</div>
                 <div className="review">{review.review}</div>
+                </div>
+                <hr />
                 {isUsersReview&&<button className="deleteReviewButton"onClick={() => {
 
                 setShowDeleteModal(review);

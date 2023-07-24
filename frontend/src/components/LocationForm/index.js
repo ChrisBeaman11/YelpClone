@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { createSingleLocation, updateSingleLocation } from "../../store/locations";
-
+import './locationForm.css';
 
 
 export default function LocationForm({location, formType}){
@@ -90,15 +90,18 @@ export default function LocationForm({location, formType}){
     return (
       <div>
         <div className="headerStuff">
-      <h2>{isUpdate? 'Edit location': 'Create a new location'}</h2>
-      <h3>Where's your place located?</h3>
+      <h2>{isUpdate? 'Edit your restaurant details': 'Add a new restaurant'}</h2>
       </div>
       <form onSubmit={handleSubmit} className="createLocationForm">
         <div className="FormContainer">
+
+      <h3 className="topH">Where's your restaurant located?</h3>
+
+          <div className="subFormContainer">
           <h2>{formType}</h2>
           <label>
             <div>
-              Country {inFlight &&<div className="errors">{errors.country}</div>}
+              <p>Country</p> {inFlight &&<div className="errors">{errors.country}</div>}
             </div>
             <input
               type="text"
@@ -106,23 +109,21 @@ export default function LocationForm({location, formType}){
               onChange={(e) => setCountry(e.target.value)}
             />
           </label>
-
-
-          <div className="subFormContainer">
             <label>
-              City {inFlight &&<div className="errors">{errors.city}</div>}
+              <p>City</p> {inFlight &&<div className="errors">{errors.city}</div>}
               <input value={city} onChange={(e) => setCity(e.target.value)} />
             </label>
             <label>
-              State {inFlight &&<div className="errors">{errors.state}</div>}
+              <p>State</p> {inFlight &&<div className="errors">{errors.state}</div>}
               <input value={state} onChange={(e) => setState(e.target.value)} />
             </label>
           </div>
 
+            <div className="bottomH">
           <label>
             <div className="descriptionStuff">
-            <h2>Describe your place to guests</h2>
-            <p className="descriptionText">Mention the best features of your space, any special amentities like fast wifi or parking, and what you love about the neighborhood.</p>
+            <h2>Describe your restaurant to customers</h2>
+            <p className="descriptionText">Describe what makes your restaurant stand out and an attractive place for potential customers.</p>
             <textarea
               placeholder="Please write at least 30 characters"
               value={description}
@@ -134,8 +135,7 @@ export default function LocationForm({location, formType}){
 
           <label>
             <div className="titleStuff">
-            <h2>Create a title for your location</h2>
-            <p>Catch guests' attention with a location title that highlights waht makes your place special.</p>
+            <h2>What is your restaurants name?</h2>
             <input placeholder = "Name of your location" value={name} onChange={(e) => setName(e.target.value)} />
             </div>
             {inFlight &&<div className="errors">{errors.name}</div>}
@@ -145,8 +145,7 @@ export default function LocationForm({location, formType}){
 
           {!isUpdate && <label>
             <div className="photoStuff">
-            <h2>Liven up your location with photos</h2>
-            <p>Submit a link to at least one photo to publish your location.</p>
+            <h2>Add a photo for your restaurant</h2>
             <div className="previewImagesFields">
             <input
               placeholder="Preview Image 1"
@@ -154,29 +153,18 @@ export default function LocationForm({location, formType}){
               value={previewImages}
               onChange={(e) => setPreviewImages(e.target.value)}
             />
-            <input type="text" value={previewImages2}
-            placeholder="Preview Image 2"
-              onChange={(e) => setPreviewImages2(e.target.value)}/>
-            <input type="text" value={previewImages3}
-            placeholder="Preview Image 3"
-              onChange={(e) => setPreviewImages3(e.target.value)}/>
-            <input type="text" value={previewImages4}
-            placeholder="Preview Image 4"
-              onChange={(e) => setPreviewImages4(e.target.value)}/>
-            <input type="text" value={previewImages5}
-            placeholder="Preview Image 5"
-              onChange={(e) => setPreviewImages5(e.target.value)}/>
               </div>
               </div>
             {inFlight &&<div className="errors">{errors.previewImages}</div>}
           </label>}
+          </div>
           <button
             // disabled={Object.keys(errors).length > 0}
             className="submitButton"
             type="submit"
             onClick={() => setInFlight(true)}
           >
-            {isUpdate? 'Edit location': 'Create location'}
+            {isUpdate? 'Edit restaurant': 'Create restaurant'}
             {formType}
           </button>
         </div>

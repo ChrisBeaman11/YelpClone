@@ -18,7 +18,7 @@ module.exports = {
     options.tableName = 'Locations';
     return queryInterface.bulkInsert(options, [
       {
-        name: "restaurant",
+        name: "Starbucks",
         ownerId: 1,
         city: 'Albany',
         state: 'New York',
@@ -26,7 +26,7 @@ module.exports = {
         description: "A great restaurant"
       },
       {
-        name: "restaurant",
+        name: "Wendys",
         ownerId: 3,
         city: 'Albany',
         state: 'New York',
@@ -34,7 +34,7 @@ module.exports = {
         description: "A great restaurant"
       },
       {
-        name: "restaurant",
+        name: "McDonalds",
         ownerId: 2,
         city: 'Albany',
         state: 'New York',
@@ -42,7 +42,7 @@ module.exports = {
         description: "A great restaurant"
       },
       {
-        name: "restaurant",
+        name: "Pizza Hut",
         ownerId: 3,
         city: 'Albany',
         state: 'New York',
@@ -50,7 +50,7 @@ module.exports = {
         description: "A great restaurant"
       },
       {
-        name: "restaurant",
+        name: "Arbys",
         ownerId: 2,
         city: 'Albany',
         state: 'New York',
@@ -58,7 +58,7 @@ module.exports = {
         description: "A great restaurant"
       },
       {
-        name: "restaurant",
+        name: "Taco Bell",
         ownerId: 1,
         city: 'Albany',
         state: 'New York',
@@ -66,7 +66,7 @@ module.exports = {
         description: "A great restaurant"
       },
       {
-        name: "restaurant",
+        name: "Dairy Queen",
         ownerId: 3,
         city: 'Albany',
         state: 'New York',
@@ -74,7 +74,7 @@ module.exports = {
         description: "A great restaurant"
       },
       {
-        name: "restaurant",
+        name: "Popeyes",
         ownerId: 1,
         city: 'Albany',
         state: 'New York',

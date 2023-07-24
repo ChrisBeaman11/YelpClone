@@ -1,15 +1,17 @@
 .paneImage{
-    width: 100%;
+    width: 90%;
     height: 200px;
     border-radius: 10px;
 }
 .paneContainer:hover{
     cursor: pointer;
+
 }
 
 .firstLinePane{
     display: flex;
     justify-content: space-between;
+    width: 90%;
     font-weight: bolder;
 }
 
@@ -19,4 +21,10 @@
 .location{
     display: flex;
     gap: 10px;
+}
+
+.locationName{
+    font-size: 40px;
+    font-weight: bolder;
+    color: rgb(197, 12, 12);
 }

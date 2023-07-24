@@ -181,7 +181,7 @@ router.get("/", async (req, res) => {
   router.put("/:locationId", requireAuth, async (req, res) => {
     let errors = {};
     let locationId = req.params.locationId;
-    let location = await location.findByPk(locationId);
+    let location = await Location.findByPk(locationId);
     if (location) {
 
       if (!req.body.city) {

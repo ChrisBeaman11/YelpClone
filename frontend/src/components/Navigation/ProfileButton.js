@@ -59,7 +59,7 @@ function ProfileButton({ user }) {
             </li>
             <li>
               <NavLink exact to="/locations/new">
-                Create Location
+                Add Restaurant
               </NavLink>
             </li>
             <li>

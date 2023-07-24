@@ -17,6 +17,7 @@ export default function LocationPane(props){
 
           title={location.name}
         >
+          <div className="locationName">{location.name}</div>
           <img
           onClick={() => {
             history.push(`/locations/${id}`);
@@ -25,11 +26,9 @@ export default function LocationPane(props){
             src={location.previewImage}
             alt="photo unavailable"
           />
-          <div className="locationName">{location.name}</div>
           <div className="firstLinePane">
             <div className="location">
-              <p>{location.city},</p>
-              <p>{location.state}</p>
+              <p>{location.city}, {location.state}</p>
             </div>
             <p>
               <i className="fas fa-star"></i> {location.avgStarRating?location.avgStarRating.toFixed(2) : "New"}
