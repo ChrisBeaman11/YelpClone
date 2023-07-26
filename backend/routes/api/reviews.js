@@ -55,7 +55,44 @@ router.get("/current", requireAuth, async (req, res) => {
     }
     return res.json({"Reviews": arr});
   });
-  
+  router.put('/:reviewId', requireAuth, async (req, res) => {
+    let errors = {};
+    let userId = req.user.id;
+    let reviewId = req.params.reviewId;
+    let thisReview = await Review.findByPk(reviewId);
+    const {review, rating} = req.body;
+    if(thisReview){
+        const newReview = await Review.create({
+            userId: userId,
+            spotId: thisReview.spotId,
+            review,
+            rating
+        })
+        if(!req.body.review){
+            errors.review = "Review text is required";
+        }
+        if(req.body.rating > 5 || req.body.rating <1 || !req.body.rating){
+            errors.rating = "rating must be an integer from 1 to 5";
+        }
+        if(!Object.keys(errors).length){
+            res.status(200);
+            return res.json(newReview);
+            }
+            else{
+                res.status(400);
+                return res.json({
+                    "message": "Bad Request", errors
+                });
+            }
+    }
+    else{
+        res.status(404);
+        return res.json({
+            "message": "Review couldn't be found"
+          });
+    }
+})
+
 
   router.delete('/:reviewId', requireAuth, async (req, res) => {
     let reviewId = req.params.reviewId;

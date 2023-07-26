@@ -16,10 +16,6 @@ export default function LocationForm({location, formType}){
     const [name, setName] = useState(location?.name || "");
 
     const [previewImages, setPreviewImages] = useState("");
-    const [previewImages2, setPreviewImages2] = useState("");
-    const [previewImages3, setPreviewImages3] = useState("");
-    const [previewImages4, setPreviewImages4] = useState("");
-    const [previewImages5, setPreviewImages5] = useState("");
 
     const isUpdate = location!=null;
     const [inFlight, setInFlight] = useState(false);
@@ -38,11 +34,7 @@ export default function LocationForm({location, formType}){
         name
       };
       const images =
-        [previewImages,
-        previewImages2,
-        previewImages3,
-        previewImages4,
-        previewImages5]
+        [previewImages]
 
 
       if (isUpdate) {

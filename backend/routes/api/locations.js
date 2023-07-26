@@ -53,7 +53,7 @@ router.get("/", async (req, res) => {
         },
       });
       const totalStars = await Review.findAll({
-        attributes: [[sequelize.fn("sum", sequelize.col("stars")), "total"]],
+        attributes: [[sequelize.fn("sum", sequelize.col("rating")), "total"]],
         where: {
           locationId: location.id,
         },
@@ -129,12 +129,6 @@ router.get("/", async (req, res) => {
     if (!req.body.country) {
       errors.country = "Country is required";
     }
-    if (typeof req.body.lat !== "number") {
-      errors.lat = "Latitude is not valid";
-    }
-    if (typeof req.body.lng !== "number") {
-      errors.lng = "Longitude is not valid";
-    }
     if (req.body.name) {
       if (req.body.name.length > 49) {
         errors.name = "Name must be less than 50 characters";
@@ -143,31 +137,22 @@ router.get("/", async (req, res) => {
     if (!req.body.description) {
       errors.description = "Description is required";
     }
-    if (!req.body.price) {
-      errors.price = "Price per day is required";
-    }
 
     try {
       const {
         city,
         state,
         country,
-        lat,
-        lng,
         name,
-        description,
-        price,
+        description
       } = req.body;
-      const location = await location.create({
+      const location = await Location.create({
         ownerId: req.user.id,
         city,
         state,
         country,
-        lat,
-        lng,
         name,
-        description,
-        price,
+        description
       });
       res.status(201);
       return res.json(location);
@@ -194,12 +179,6 @@ router.get("/", async (req, res) => {
       if (!req.body.country) {
         errors.country = "Country is required";
       }
-      if (typeof req.body.lat !== "number") {
-        errors.lat = "Latitude is not valid";
-      }
-      if (typeof req.body.lng !== "number") {
-        errors.lng = "Longitude is not valid";
-      }
       if (req.body.name) {
         if (req.body.name.length > 49) {
           errors.name = "Name must be less than 50 characters";
@@ -208,29 +187,20 @@ router.get("/", async (req, res) => {
       if (!req.body.description) {
         errors.description = "Description is required";
       }
-      if (!req.body.price) {
-        errors.price = "Price per day is required";
-      }
       const {
         city,
         state,
         country,
-        lat,
-        lng,
         name,
-        description,
-        price,
+        description
       } = req.body;
       const updatedLocation = await location.update({
         ownerId: req.user.id,
         city,
         state,
         country,
-        lat,
-        lng,
         name,
-        description,
-        price,
+        description
       });
       if (!Object.keys(errors).length) {
         res.status(200);
@@ -315,20 +285,20 @@ router.get("/", async (req, res) => {
       }
 
       let errors = {};
-      const { review, stars } = req.body;
+      const { review, rating } = req.body;
       let location = await Location.findByPk(locationId);
       if (location) {
         const newReview = await Review.create({
           userId: userId,
           locationId: locationId,
           review,
-          rating: stars,
+          rating: rating,
         });
         if (!req.body.review) {
           errors.review = "Review text is required";
         }
-        if (req.body.stars > 5 || req.body.stars < 1 || !req.body.stars) {
-          errors.stars = "Stars must be an integer from 1 to 5";
+        if (req.body.rating > 5 || req.body.rating < 1 || !req.body.rating) {
+          errors.rating = "rating must be an integer from 1 to 5";
         }
         if (!Object.keys(errors).length) {
           res.status(201);
@@ -349,6 +319,60 @@ router.get("/", async (req, res) => {
     } catch (e) {
       res.status(400);
       return res.json({ error: e });
+    }
+  });
+  router.post("/:locationId/images", requireAuth, async (req, res) => {
+    let locationId = req.params.locationId;
+    const { url, preview } = req.body;
+    let location = await Location.findByPk(locationId);
+    if (location) {
+      let locationImage = await LocationImage.create({
+        url,
+        preview,
+        locationId,
+      });
+
+      return res.json({
+        id: locationImage.id,
+        url: locationImage.url,
+        preview: locationImage.preview,
+      });
+    } else {
+      res.status(404);
+      return res.json({
+        message: "Location couldn't be found",
+      });
+    }
+  });
+  router.get("/:locationId/reviews", async (req, res) => {
+    let arr = [];
+    let locationId = req.params.locationId;
+    let location = await Location.findByPk(locationId);
+    if (location) {
+      let reviews = await Review.findAll({
+        where: {
+          locationId: locationId,
+        }
+      });
+
+      for (let review of reviews) {
+        let pojo = review.toJSON();
+        let user = await User.findOne({
+          where: {
+            id: review.userId,
+          },
+          attributes: ["id", "firstName", "lastName"],
+        });
+        pojo.User = user;
+        arr.push(pojo);
+      }
+
+      return res.json({ Reviews: arr });
+    } else {
+      res.status(404);
+      return res.json({
+        message: "Location couldn't be found",
+      });
     }
   });
 
