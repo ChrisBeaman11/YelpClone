@@ -7,22 +7,19 @@
 .menu:hover{
     cursor: pointer;
 }
-.NavContainer{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-    border-bottom: darkgray 1px solid;
-}
+
 .squishedNavCont{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
-    border-bottom: darkgray 1px solid;
-    margin-left: 15%;
-    margin-right: 15%;
+    padding-bottom: 20px;
+    border-bottom: black 5px solid;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 0;
+
 }
+
 
 .SubNav {
     display: flex;
@@ -35,7 +32,7 @@
 .logo{
     padding-left: 30px;
     font-size: 40px;
-    color: rgb(197, 12, 12);
+    color: rgb(238, 46, 46);
 }
 
 .logo:hover{

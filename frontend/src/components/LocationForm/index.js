@@ -81,7 +81,7 @@ export default function LocationForm({location, formType}){
     ]);
     return (
       <>
-      <div>
+      <div className="formPage">
         <div className="headerStuff">
       <h2>{isUpdate? 'Edit your restaurant details': 'Add a new restaurant'}</h2>
       </div>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect} from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchSingleLocation } from "../store/locations";
@@ -26,7 +26,7 @@ export default function Location() {
   const reviews = useSelector((state) => state.reviews.reviews) || [];
   const sessionUser = useSelector((state) => state.session.user);
 
- 
+
 
   useEffect(() => {
     dispatch(fetchSingleLocation(locationId));
@@ -85,7 +85,6 @@ export default function Location() {
           return dateB - dateA;
         }).map((review, i) => {
             const isUsersReview = sessionUser?.id === review.User.id;
-            console.log("THIS IS showModal", showModal)
             return (
               <div className="reviewItem" key={i}>
                 {review &&<>

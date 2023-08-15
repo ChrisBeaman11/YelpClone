@@ -17,7 +17,7 @@
     width: 220px;
     height: 50px;
     box-shadow: 2px 2px;
-    background-color: #FF5A5F;
+    background-color: rgb(238, 46, 46);
 }
 .loginButton[disabled]{
     background-color: lightgray;
@@ -27,4 +27,5 @@
     flex-direction: column;
     gap: 10px;
     align-items: center;
+    
 }

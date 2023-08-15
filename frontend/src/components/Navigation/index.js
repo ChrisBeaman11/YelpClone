@@ -20,6 +20,7 @@ function Navigation({ isLoaded }) {
 
   }, [pathname])
   return (
+    <div className="navContainer">
     <div className={changeStyle? 'squishedNavCont': 'squishedNavCont'}>
 
       <h1 onClick = {() => history.push('/')}className = "logo">Yelp</h1>
@@ -35,6 +36,7 @@ function Navigation({ isLoaded }) {
           )
       }
       </div>
+    </div>
     </div>
   );
 }

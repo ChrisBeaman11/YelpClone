@@ -10,6 +10,8 @@ import Location from "./views/location";
 import CreateLocation from "./views/createLocationForm";
 import UpdateLocation from "./views/updateLocation";
 import ManageLocations from "./views/manageLocations";
+import Footer from "./components/Footer";
+import './index.css'
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -19,6 +21,7 @@ function App() {
 
   return (
     <>
+    <div className="app">
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
@@ -39,6 +42,8 @@ function App() {
           </Route>
         </Switch>
       )}
+      <Footer></Footer>
+      </div>
     </>
   );
 }

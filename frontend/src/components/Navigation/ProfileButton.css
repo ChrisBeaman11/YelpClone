@@ -1,3 +1,14 @@
 .profButton{
     width: 80px;
 }
+
+.logoutButton{
+    margin-top: 2px;
+    border-radius: 8px;
+    background-color: rgb(238, 46, 46);
+    color: white;
+}
+
+.logoutButton:hover{
+    cursor: pointer;
+}

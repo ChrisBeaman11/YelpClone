@@ -14,12 +14,14 @@ export default function ManageLocations() {
 
   return (
     <Suspense fallback={<Loading />}>
+      <div className="manageCont">
         <h2 className="header">Manage Your Restaurants</h2>
         <p className="des">Here you can edit your existing restaurants details or delete an existing restaurant off of the site.</p>
       <div className="GridContainer">
         {userLocations.map((location) => {
           return <LocationPane key={location.id} location={location} footer={true} />;
         })}
+      </div>
       </div>
     </Suspense>
   );

@@ -1,0 +1,17 @@
+.footerCont{
+    display: flex;
+    justify-content: space-between;
+    font-size: 26px;
+    margin-left: 0px;
+    margin-right: 0px;
+    background-color: rgb(238, 46, 46);
+    color: white;
+    height: 120px;
+    align-items: center;
+}
+.githubLink{
+    margin-right: 10%;
+}
+.linkedInLink{
+    margin-left: 10%;
+}
