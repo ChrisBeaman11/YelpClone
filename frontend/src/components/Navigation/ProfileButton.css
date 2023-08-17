@@ -1,5 +1,6 @@
 .profButton{
-    width: 80px;
+    width: 60px;
+    height: 40px;
 }
 
 .logoutButton{
@@ -11,4 +12,7 @@
 
 .logoutButton:hover{
     cursor: pointer;
+}
+li{
+    list-style: none;
 }

@@ -46,6 +46,11 @@ export default function Location() {
   let rating = location.avgStarRating?`${location.avgStarRating?.toFixed(2)} · ${location.numReviews} ${reviewText}`:"New";
   return (
     <>
+    <div className="detailsHead">
+    <h2>Check out this restaurant and feel free to leave a review!</h2>
+    <h3 className="about">About this restaurant</h3>
+    <p className="descriptionTag">{location.description}</p>
+    </div>
     <div className="outerCont">
       <div className="paneContainer">
         <h2 className="locationName">{location.name}</h2>
@@ -61,7 +66,7 @@ export default function Location() {
           <h3>{location.city}, {location.state}, {location.country}</h3>
         </div>
 
-            <p className="descriptionTag">{location.description}</p>
+
 
         </div>
         <div className="reviewSide">

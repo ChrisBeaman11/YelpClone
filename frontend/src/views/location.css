@@ -38,17 +38,24 @@ display: flex;
     padding-left: 15%;
     padding-right: 15%;
     gap: 3em;
+    margin-bottom: 2em;
+    height: 400px;
+
 }
 
 .reviewSide{
     border: 2px solid gray;
     border-radius: 20px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
 }
 .reviewCont{
     margin-left: 3em;
     display: flex;
     flex-direction: column;
     gap: 10px;
+    width: 100%;
 }
 .name{
     font-size: 24px;
@@ -58,6 +65,7 @@ display: flex;
 }
 .review{
     font-size: 16px;
+
 }
 
 .ratingPTag{
@@ -68,6 +76,8 @@ display: flex;
     border-radius: 8px;
     background-color: rgb(238, 46, 46);
     color: white;
+    width: 20em;
+    font-size: 1.1em;
 }
 
 .deleteReviewButton:hover{
@@ -79,9 +89,23 @@ display: flex;
     color: white;
     margin-left: 25%;
     margin-bottom: 20px;
+    width: 40%;
+    height: 1.5em;
+    font-size: 1em;
 }
 
 .postReviewButton:hover{
     cursor: pointer;
+
 }
 
+.detailsHead{
+    margin-top: 5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about{
+    text-decoration: underline;
+}

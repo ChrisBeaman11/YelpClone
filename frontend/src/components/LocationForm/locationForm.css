@@ -72,3 +72,8 @@ textarea{
 .formPage{
     margin-bottom: 5em;
 }
+
+.createLocationForm input{
+    width: 50em;
+    height: 2em;
+}

@@ -5,6 +5,12 @@
 .noButton{
     background-color: gray;
 }
+.yesButton:hover{
+    cursor: pointer;
+}
+.noButton:hover{
+    cursor: pointer;
+}
 
 
 
@@ -17,7 +23,7 @@
     height: 230px;
     overflow: auto;
     border-radius: 10px;
-    background-color: darkgray;
+    background-color: rgb(196 194 194);
     display: flex;
     flex-direction: column;
     align-items: center;

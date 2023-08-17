@@ -1,4 +1,9 @@
 /* TODO Add site wide styles */
+body{
+    margin: 0;
+    padding: 0;
+}
 .app{
-    background-color: rgb(220, 203, 183);
+    background-color: rgb(255 245 233);
+
 }

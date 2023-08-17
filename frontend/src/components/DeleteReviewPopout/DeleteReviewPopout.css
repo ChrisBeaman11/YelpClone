@@ -1,6 +1,12 @@
 .yesButton{
     background-color: rgb(238, 46, 46);
 }
+.yesButton:hover{
+    cursor: pointer;
+}
+.mpButton:hover{
+    cursor: pointer;
+}
 
 .noButton{
     background-color: gray;
@@ -15,7 +21,7 @@
     height: 230px;
     overflow: auto;
     border-radius: 10px;
-    background-color: darkgray;
+    background-color: rgb(196 194 194);
     display: flex;
     flex-direction: column;
     align-items: center;

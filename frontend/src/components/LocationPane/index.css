@@ -3,10 +3,7 @@
     height: 200px;
     border-radius: 10px;
 }
-.paneContainer:hover{
-    cursor: pointer;
 
-}
 
 .firstLinePane{
     display: flex;
@@ -41,5 +38,9 @@
     color: white;
 }
 .manageButtons:hover{
+    cursor: pointer;
+}
+
+.paneImage:hover{
     cursor: pointer;
 }
