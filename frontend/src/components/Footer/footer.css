@@ -9,6 +9,10 @@
     height: 120px;
     align-items: center;
 }
+.footerCont a{
+    color: white;
+    
+}
 .githubLink{
     margin-right: 10%;
 }

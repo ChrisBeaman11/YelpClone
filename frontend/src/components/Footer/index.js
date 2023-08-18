@@ -4,10 +4,10 @@ function Footer() {
   return(
     <div className="footerCont">
         <div className="linkedInLink">
-            <p>Linked in link here</p>
+        <a href="https://www.linkedin.com/in/christopher-beaman-2a852b153/">Chris Beaman LinkedIn</a>
         </div>
         <div className="githubLink">
-            <p>Github link here</p>
+        <a href="https://github.com/ChrisBeaman11">Chris Beaman GitHub</a>
         </div>
     </div>
   );
