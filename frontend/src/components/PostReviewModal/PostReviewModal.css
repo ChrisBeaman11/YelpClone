@@ -7,18 +7,20 @@
 
 .reviewTextArea{
     background-color: lightblue;
+    width: 500px;
+    height: 300px;
 }
 
 .modalContainer{
     position: fixed;
     z-index: 1;
-    left: calc(50% - 200px);
-    top: calc(50% - 250px);
-    width: 400px;
-    height: 500px;
+    left: calc(50% - 300px);
+    top: calc(50% - 350px);
+    width: 600px;
+    height: 700px;
     overflow: auto;
     border-radius: 10px;
-    background-color: darkgray;
+    background-color: rgb(196 194 194);
 }
 
 .modalContent {
@@ -32,3 +34,5 @@
     background-color: lightgray;
     color: gray;
 }
+
+
