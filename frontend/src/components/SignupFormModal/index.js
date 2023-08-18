@@ -56,7 +56,7 @@ console.log("these are my errors", errors);
           />
         {errors.email && <p className="errors">{errors.email}</p>}
           <input
-          placeholder="Username"
+          placeholder="Username of at least four characters"
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
@@ -85,7 +85,7 @@ console.log("these are my errors", errors);
         {errors.lastName && <p className="errors">{errors.lastName}</p>}
 
           <input
-          placeholder="Password"
+          placeholder="Password of at least 6 characters"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
