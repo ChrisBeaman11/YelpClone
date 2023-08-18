@@ -62,11 +62,11 @@ export default function LocationForm({location, formType}){
       if (!previewImages.length && !isUpdate) errorObj.previewImages = "Preview image 1 is required";
       for (let i = 0; i < previewImages.length; i++) {
         if (
-          previewImages[i].indexOf(".png") !== -1 ||
-          previewImages[i].indexOf(".jpeg") !== -1 ||
-          previewImages[i].indexOf(".jpg") !== -1
+          previewImages.includes("png") === false &&
+          previewImages.includes("jpeg") === false &&
+          previewImages.includes("jpg") === false
         ) {
-          errorObj.previewImages = "Image URL must end in .png. .jpg, or .jpeg";
+          errorObj.previewImages = "Image URL must be a .png. .jpg, or .jpeg";
         }
       }
 
