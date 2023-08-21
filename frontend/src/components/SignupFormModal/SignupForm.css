@@ -28,6 +28,9 @@
     box-shadow: 2px 2px;
     background-color: rgb(238, 46, 46);
 }
+.signupButton:hover{
+    cursor: pointer;
+}
 
 .signupButton[disabled]{
     background-color: lightgray;
